@@ -1,0 +1,25 @@
+{
+  "name": "mipscript",
+  "displayName": ">MIPScript",
+  "description": "Language Support for MIPScript",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "mipscript",
+      "aliases": ["MIPScript", "mipscript"],
+      "extensions": [".ms"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "mipscript",
+      "scopeName": "source.ms",
+      "path": "./syntaxes/mipscript.tmLanguage.json"
+    }]
+  }
+}
