@@ -6,15 +6,76 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#types"
+		},
+		{
 			"include": "#strings"
+		},
+		{
+			"include": "#block-comments"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#consts"
+		},
+		{
+			"include": "#calls"
+		},
+		{
+			"include": "#variables"
 		}
+		
 	],
 	"repository": {
+		"block-comments":{
+			"patterns": [{
+				"name": "comment.block.mipscript",
+				"begin": "#{",
+				"end": "}#"
+			},
+			{
+				"name": "comment.block.mipscript",
+				"begin": "#",
+				"end": "\\n"
+			}
+		]
+		},
+		"numbers":{
+			"patterns": [{
+				"name": "constant.numeric.mipscript",
+				"match": "[0-9]"
+			}]
+		},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.mipscript",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(if|elif|else|while|do|then|for|each|to|from|index|return|break)\\b"
 			}]
+		},
+		"types":{
+			"patterns": [{
+				"name": "entity.name.function.mipscript",
+				"match": "\\b(func)\\b"
+			},
+			{
+				"name": "support.class.mipscript",
+				"match": "\\b(obj|class|extends|construct)\\b"
+			},
+			{
+				"name": "keyword.other.mipscript",
+				"match": "\\b(let|const|publ|priv)\\b"
+			}
+			]
+		},
+		"consts":{
+			"patterns": [
+			{
+				"name": "variable.other.constant.mipscript",
+				"match": "\\b(Null|True|False|self)\\b"
+			}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.mipscript",
@@ -24,6 +85,31 @@
 				{
 					"name": "constant.character.escape.mipscript",
 					"match": "\\\\."
+				}
+			]
+		},
+		"calls":{
+			"patterns": [
+				{
+					"name": "constant.character.escape.mipscript",
+					"match": "\\b(recur|output|mod|add|push|in|equals|pop|copy|len)\\b"
+				},
+				{
+					"name": "entity.name.function.mipscript",
+					"match": "\\b((_[a-zA-Z]+_)|([a-zA-Z]+_))\\b"
+				},
+				{
+					"name": "entity.name.function.mipscript",
+					"match": "[a-zA-Z]+(?=\\()"
+				}
+			]
+		},
+		"variables":{
+			"patterns": [
+				
+				{
+					"name": "variable.mipscript",
+					"match": "[a-zA-Z]"
 				}
 			]
 		}
